@@ -4,7 +4,7 @@ package XML::XBEL;
 use base qw (XML::XBEL::item
 	     XML::XBEL::container);
 
-# $Id: XBEL.pm,v 1.7 2004/07/03 06:17:50 asc Exp $
+# $Id: XBEL.pm,v 1.8 2005/03/26 18:44:48 asc Exp $
 
 =head1 NAME 
 
@@ -50,8 +50,8 @@ XML::XBEL - OOP for reading and writing XBEL documents.
  foreach my $bm ($xbel->bookmarks()) {
 
      print sprintf("%s points to %s\n",
-		   $_->title(),
-		   $_->href());
+		   $bm->title(),
+		   $bm->href());
  } 
 
 =head1 DESCRIPTION
@@ -60,7 +60,7 @@ OOP for reading and writing XBEL files.
 
 =cut
 
-$XML::XBEL::VERSION = '1.2';
+$XML::XBEL::VERSION = '1.3';
 
 use XML::LibXML;
 
@@ -409,11 +409,11 @@ sub toSAX {
 
 =head1 VERSION
 
-1.2
+1.3
 
 =head1 DATE
 
-$Date: 2004/07/03 06:17:50 $
+$Date: 2005/03/26 18:44:48 $
 
 =head1 AUTHOR
 

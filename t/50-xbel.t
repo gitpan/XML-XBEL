@@ -21,8 +21,8 @@ ok($xbel->new_document({title    => LOCAL_TITLE,
 
 #
 
-use Data::Denter;
-print Indent($xbel);
+# use Data::Dumper;
+# diag(Dumper($xbel));
 
 cmp_ok($xbel->title(),"eq",LOCAL_TITLE,
        sprintf("title is %s",LOCAL_TITLE));
@@ -67,4 +67,4 @@ ok($xbel->add_separator(),
 ok($xbel->add_alias({ref=>"123"}),
    "added alias to bookmark 123");
 
-# $Id: 50-xbel.t,v 1.4 2004/06/23 06:30:21 asc Exp $
+# $Id: 50-xbel.t,v 1.5 2005/03/26 18:44:48 asc Exp $
