@@ -1,3 +1,4 @@
+Build.PL
 Changes
 lib/XML/XBEL.pm
 lib/XML/XBEL/Alias.pm
@@ -13,7 +14,8 @@ lib/XML/XBEL/thingy.pm
 lib/XML/XBEL/url.pm
 Makefile.PL
 MANIFEST
-META.yml                                 Module meta-data (added by MakeMaker)
+META.yml
+README
 t/00-load.t
 t/10-xbel-bookmark.t
 t/15-xbel-alias.t

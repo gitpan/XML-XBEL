@@ -4,7 +4,7 @@ package XML::XBEL;
 use base qw (XML::XBEL::item
 	     XML::XBEL::container);
 
-# $Id: XBEL.pm,v 1.8 2005/03/26 18:44:48 asc Exp $
+# $Id: XBEL.pm,v 1.9 2005/04/02 20:54:52 asc Exp $
 
 =head1 NAME 
 
@@ -60,7 +60,7 @@ OOP for reading and writing XBEL files.
 
 =cut
 
-$XML::XBEL::VERSION = '1.3';
+$XML::XBEL::VERSION = '1.4';
 
 use XML::LibXML;
 
@@ -409,11 +409,11 @@ sub toSAX {
 
 =head1 VERSION
 
-1.3
+1.4
 
 =head1 DATE
 
-$Date: 2005/03/26 18:44:48 $
+$Date: 2005/04/02 20:54:52 $
 
 =head1 AUTHOR
 

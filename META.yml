@@ -1,6 +1,6 @@
 --- #YAML:1.0
 name: XML-XBEL
-version: 1.3
+version: 1.4
 author:
   - Aaron Straup Cope E<lt>ascope@cpan.orgE<gt>
 abstract: OOP for reading and writing XBEL documents.
@@ -13,7 +13,7 @@ build_requires:
 provides:
   XML::XBEL:
     file: lib/XML/XBEL.pm
-    version: 1.3
+    version: 1.4
   XML::XBEL::Alias:
     file: lib/XML/XBEL/Alias.pm
   XML::XBEL::Bookmark:
