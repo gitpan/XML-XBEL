@@ -3,8 +3,6 @@ use Test::More;
 
 plan tests => 9;
 
-use constant XBEL_STRING => qq();
-
 #
 
 use_ok("XML::XBEL");

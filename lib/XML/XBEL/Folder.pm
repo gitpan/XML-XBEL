@@ -21,7 +21,7 @@ OOP for reading/writing XBEL folders.
 
 =cut
 
-# $Id: Folder.pm,v 1.4 2004/06/23 06:23:57 asc Exp $
+# $Id: Folder.pm,v 1.5 2004/06/24 02:15:15 asc Exp $
 
 use XML::LibXML;
 
@@ -185,25 +185,37 @@ sub folded {
     $self->_attribute("folded",$bool);
 }
 
-=head2 $obj->bookmarks()
+=head2 $obj->bookmarks($recursive)
 
 Returns a list of child I<XML::XBEL::Bookmark> objects.
 
+Where I<$recursive> is a boolean indicating whether to
+return all the bookmarks in an XBEL folder or only its
+immediate children.
+
 =cut
 
 # Defined in XML::XBEL::container
 
-=head2 $obj->folders()
+=head2 $obj->folders($recursive)
 
 Returns a list of child I<XML::XBEL::Folder> objects.
 
+Where I<$recursive> is a boolean indicating whether to
+return all the folders in an XBEL folder or only its
+immediate children.
+
 =cut
 
 # Defined in XML::XBEL::container
 
-=head2 $obj->aliases()
+=head2 $obj->aliases($recursive)
 
 Returns a list of child I<XML::XBEL::Alias> objects.
+
+Where I<$recursive> is a boolean indicating whether to
+return all the aliases in an XBEL folder or only its
+immediate children.
 
 =cut
 
@@ -270,11 +282,11 @@ Delete an XBEL folder.
 
 =head1 VERSION
 
-$Revision: 1.4 $
+$Revision: 1.5 $
 
 =head1 DATE
 
-$Date: 2004/06/23 06:23:57 $
+$Date: 2004/06/24 02:15:15 $
 
 =head1 AUTHOR
 

@@ -17,16 +17,12 @@ Private methods for XBEL containers.
 
 =cut
 
-# $Id: container.pm,v 1.3 2004/06/23 06:23:57 asc Exp $
+# $Id: container.pm,v 1.5 2004/06/24 02:15:15 asc Exp $
 
 sub bookmarks {
     my $self = shift;
 
-    require XML::XBEL::Bookmark;
-
-    return map {
-	XML::XBEL::Bookmark->build_node($_);
-    } $self->{'__root'}->findnodes("./descendant::*[name()='bookmark']");
+    return $self->_find_children("bookmark","XML::XBEL::Bookmark",@_);
 }
 
 sub add_bookmark {
@@ -37,13 +33,9 @@ sub add_bookmark {
 }
 
 sub folders {
-    my $self = shift;
+    my $self      = shift;
 
-    require XML::XBEL::Folder;
-
-    return map {
-	XML::XBEL::Folder->build_node($_);
-    } $self->{'__root'}->findnodes("./descendant::*[name()='folder']");
+    return $self->_find_children("folder","XML::XBEL::Folder",@_);
 }
 
 sub add_folder {
@@ -54,13 +46,9 @@ sub add_folder {
 }
 
 sub aliases {
-    my $self = shift;
+    my $self      = shift;
 
-    require XML::XBEL::Alias;
-
-    return map {
-	XML::XBEL::Alias->build_node($_);
-    } $self->{'__root'}->findnodes("./descendant::*[name()='alias']");
+    return $self->_find_children("alias","XML::XBEL::Alias",@_);
 }
 
 sub add_alias {
@@ -104,13 +92,29 @@ sub _add_item {
     return 1;
 }
 
+sub _find_children {
+    my $self      = shift;
+    my $child     = shift;
+    my $class     = shift;
+    my $recursive = shift;
+
+    eval "require $class";
+
+    my $xpath = ($recursive) ? "./descendant::*[name()='$child']" :
+	"./child::*[name()='$child']";
+
+    return map {
+	$class->build_node($_);
+    } $self->{'__root'}->findnodes($xpath);
+}
+
 =head1 VERSION
 
-$Revision: 1.3 $
+$Revision: 1.5 $
 
 =head1 DATE
 
-$Date: 2004/06/23 06:23:57 $
+$Date: 2004/06/24 02:15:15 $
 
 =head1 AUTHOR
 

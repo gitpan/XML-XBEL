@@ -3,8 +3,6 @@ use Test::More;
 
 plan tests => 11;
 
-use constant XBEL_STRING => qq();
-
 #
 
 use_ok("XML::XBEL");
@@ -17,14 +15,14 @@ isa_ok($xbel,"XML::XBEL");
 ok($xbel->parse_file("./t/test.xbel"),
    "parsed xbel");
 
-cmp_ok(scalar($xbel->bookmarks()),"==",41,
+cmp_ok(scalar($xbel->bookmarks(1)),"==",41,
        "xbel has 41 bookmarks");
 
 map { 
   $_->delete();
-} $xbel->bookmarks();
+} $xbel->bookmarks(1);
 
-cmp_ok(scalar($xbel->bookmarks()),"==",0,
+cmp_ok(scalar($xbel->bookmarks(1)),"==",0,
        "xbel has 0 bookmarks");
 
 #
@@ -32,14 +30,14 @@ cmp_ok(scalar($xbel->bookmarks()),"==",0,
 ok($xbel->parse_file("./t/test.xbel"),
    "parsed xbel");
 
-cmp_ok(scalar($xbel->folders()),"==",2,
+cmp_ok(scalar($xbel->folders(1)),"==",2,
       "xbel has 2 folders");
 
 map { 
   $_->delete();
-} $xbel->folders();
+} $xbel->folders(1);
 
-cmp_ok(scalar($xbel->folders()),"==",0,
+cmp_ok(scalar($xbel->folders(1)),"==",0,
        "file has 0 folders");
 
 #
@@ -57,4 +55,4 @@ map {
 cmp_ok(scalar($xbel->aliases()),"==",0,
        "xbel has 0 aliases");
 
-# $Id: 80-delete.t,v 1.1 2004/06/23 06:23:57 asc Exp $
+# $Id: 80-delete.t,v 1.2 2004/06/24 02:15:15 asc Exp $

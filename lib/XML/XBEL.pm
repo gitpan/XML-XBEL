@@ -4,7 +4,7 @@ package XML::XBEL;
 use base qw (XML::XBEL::item
 	     XML::XBEL::container);
 
-# $Id: XBEL.pm,v 1.4 2004/06/23 06:23:57 asc Exp $
+# $Id: XBEL.pm,v 1.6 2004/06/24 02:15:15 asc Exp $
 
 =head1 NAME 
 
@@ -60,7 +60,7 @@ OOP for reading and writing XBEL files.
 
 =cut
 
-$XML::XBEL::VERSION = '1.0';
+$XML::XBEL::VERSION = '1.1';
 
 use XML::LibXML;
 
@@ -230,25 +230,37 @@ otherwise returns true or false.
 
 # Defined in XML::XBEL::info
 
-=head2 $obj->bookmarks()
+=head2 $obj->bookmarks($recursive)
 
 Returns a list of child I<XML::XBEL::Bookmark> objects.
 
+Where I<$recursive> is a boolean indicating whether to
+return all the bookmarks in an XBEL document or only its
+immediate children.
+
 =cut
 
 # Defined in XML::XBEL::container
 
-=head2 $obj->folders()
+=head2 $obj->folders($recursive)
 
 Returns a list of child I<XML::XBEL::Folder> objects.
 
+Where I<$recursive> is a boolean indicating whether to
+return all the folders in an XBEL document or only its
+immediate children.
+
 =cut
 
 # Defined in XML::XBEL::container
 
-=head2 $obj->aliases()
+=head2 $obj->aliases($recursive)
 
 Returns a list of child I<XML::XBEL::Alias> objects.
+
+Where I<$recursive> is a boolean indicating whether to
+return all the aliases in an XBEL document or only its
+immediate children.
 
 =cut
 
@@ -382,11 +394,11 @@ sub toFH {
 
 =head1 VERSION
 
-1.0
+1.1
 
 =head1 DATE
 
-$Date: 2004/06/23 06:23:57 $
+$Date: 2004/06/24 02:15:15 $
 
 =head1 AUTHOR
 

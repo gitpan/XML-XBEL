@@ -1,5 +1,15 @@
 # Changes for XML::XBEL
 
+1.1	  Thu Jun 24, 2004
+
+	  - Added 'recursive' flag for 'bookmarks', 'folders' and
+	    'alias' methods (as defined in XML::XBEL::container)
+
+	    (this change is not backwards compatible with XML::XBEL
+	     1.0 where the 'recursive' flag was true by default.)
+
+	  - Updated POD
+
 1.0	  Wed Jun 23, 2004
 
-	  - initial public release
+	  - Initial public release
