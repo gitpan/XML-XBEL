@@ -23,4 +23,5 @@ t/50-xbel.t
 t/75-parse.t
 t/80-delete.t
 t/85-find-by.t
+t/90-sax.t
 t/test.xbel

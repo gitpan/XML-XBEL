@@ -4,7 +4,7 @@ package XML::XBEL;
 use base qw (XML::XBEL::item
 	     XML::XBEL::container);
 
-# $Id: XBEL.pm,v 1.6 2004/06/24 02:15:15 asc Exp $
+# $Id: XBEL.pm,v 1.7 2004/07/03 06:17:50 asc Exp $
 
 =head1 NAME 
 
@@ -60,7 +60,7 @@ OOP for reading and writing XBEL files.
 
 =cut
 
-$XML::XBEL::VERSION = '1.1';
+$XML::XBEL::VERSION = '1.2';
 
 use XML::LibXML;
 
@@ -392,13 +392,28 @@ sub toFH {
     $self->{'__doc'}->toString(@_);
 }
 
+=head2 $obj->toSAX(A::SAX::Handler)
+
+Generate SAX events for the XBEL object.
+
+=cut
+
+sub toSAX {
+    my $self    = shift;
+    my $handler = shift;
+
+    require XML::LibXML::SAX::Parser;
+    my $gen = XML::LibXML::SAX::Parser->new(Handler => $handler);
+    $gen->generate($self->{'__doc'});
+}
+
 =head1 VERSION
 
-1.1
+1.2
 
 =head1 DATE
 
-$Date: 2004/06/24 02:15:15 $
+$Date: 2004/07/03 06:17:50 $
 
 =head1 AUTHOR
 

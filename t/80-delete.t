@@ -55,4 +55,4 @@ map {
 cmp_ok(scalar($xbel->aliases()),"==",0,
        "xbel has 0 aliases");
 
-# $Id: 80-delete.t,v 1.2 2004/06/24 02:15:15 asc Exp $
+# $Id: 80-delete.t,v 1.3 2004/07/03 06:17:50 asc Exp $

@@ -31,4 +31,4 @@ isa_ok($link,"XML::XBEL::Bookmark");
 cmp_ok($link->title(),"eq","RDF Access to Relational Databases",
        "RDF Access to Relational Databases");
 
-# $Id: 85-find-by.t,v 1.1 2004/06/23 06:23:57 asc Exp $
+# $Id: 85-find-by.t,v 1.2 2004/07/03 06:17:50 asc Exp $
